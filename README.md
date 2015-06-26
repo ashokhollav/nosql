@@ -70,7 +70,6 @@ So to expand the cluster from 3 nodes to 6 nodes do the following.
 4. ./runScript.sh <admin node> <script without extension>
    
 ./runScript.sh node1 6x2
-
 Copy the below statements into 6x2.kvs 
 
 plan deploy-sn -znname "Houston" -port 5000 -wait -host node4
@@ -81,8 +80,6 @@ topology clone -current -name 6x2
 topology redistribute -name 6x2 -pool AllStorageNodes
 topology preview -name 6x2
 plan deploy-topology -name 6x2 -wait
-
-
 
 This will add nodes to the cluster and expand it.
 
