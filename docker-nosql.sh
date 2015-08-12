@@ -1,6 +1,11 @@
 #!/bin/bash
+docker stop data-container
+docker rm data-container
 docker stop node1 node2 node3 dns client
 docker rm node1 node2 node3 dns client
+
+# run a data only container
+docker create   -v /data --name data-container busybox /bin/sh
 
 # run phensley's dns server
 docker run -d --name dns -v /var/run/docker.sock:/docker.sock phensley/docker-dns  --domain example.com
